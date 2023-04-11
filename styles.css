@@ -1,0 +1,35 @@
+body {
+	margin: 0;
+	padding:0;
+}
+
+#map {
+	height: 100vh;
+	width: 100%;
+}
+
+#panel {
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	position: absolute;
+	top: 0;
+	right: 0; /* start off-screen */
+	height: 100vh;
+	width: 300px;
+	padding: 15px;
+	display: none; /* change to block to show the panel when needed */
+	background: #646464;
+	color: white;
+  }
+
+.gm-style .gm-style-iw-c,
+.gm-style .gm-style-iw-tc::after {
+	display:none;
+}
+
+@media (max-width: 768px) {
+	#panel {
+		position: static;
+		width: 100%;
+		display: block;
+	}
+}
