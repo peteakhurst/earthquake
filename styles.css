@@ -1,7 +1,7 @@
 body {
 	margin: 0;
 	padding:0;
-	overflow: auto;
+	overflow: hidden;
 }
 
 #map {
@@ -18,10 +18,27 @@ body {
 	height: 100vh;
 	width: 300px;
 	padding: 15px;
-	display: none; /* change to block to show the panel when needed */
 	background: #646464;
 	color: white;
+	display:none;
+  }
+
+  .fadeIn {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+  }
+
+  .fadeIn.show {
 	opacity: 1;
+  }
+
+  .fadeOut {
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out;
+  }
+
+  .fadeOut.hide {
+	opacity: 0;
   }
 
 @media (max-width: 768px) {
@@ -29,7 +46,7 @@ body {
 		position: static;
 		width: 100%;
 		display: block;
-		overflow:hidden;
+		overflow:auto;
 		height: 20vh;
 	}
 }
