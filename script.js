@@ -1,4 +1,5 @@
 let map;
+let callout = 'gm-style-iw gm-style-iw-c';
 
 async function initMap() {
   //@ts-ignore
@@ -48,6 +49,11 @@ async function initMap() {
 
           // Open the info window
           infoWindow.open(map, marker);
+        });
+
+        // Create an event listener for the info window
+
+        infoWindow.addListener('domready', function () {
           // Show the earthquake details panel
           let panelElement = document.getElementById('panel');
           panelElement.innerHTML =
@@ -58,7 +64,15 @@ async function initMap() {
             '</p><p><strong>Depth:</strong> ' +
             feature.geometry.coordinates[2] +
             ' km</p>';
+          panelElement.style.maxHeight = '0';
+          panelElement.style.opacity = '0';
           panelElement.style.display = 'block';
+          panelElement.style.transition = 'max-height 0.3s, opacity 0.3s';
+          // Trigger the slide effect
+          setTimeout(() => {
+            panelElement.style.maxHeight = '100vh';
+            panelElement.style.opacity = '1';
+          }, 10);
         });
       });
     });
@@ -70,6 +84,11 @@ async function initMap() {
 
     // Hide the earthquake details panel
     let panelElement = document.getElementById('panel');
-    panelElement.style.display = 'none';
+    panelElement.style.maxHeight = '0';
+    panelElement.style.opacity = '0';
+    panelElement.style.transition = 'max-height 0.5s, opacity 0.5s';
+    setTimeout(() => {
+      panelElement.style.display = 'none';
+    }, 500);
   });
 }
