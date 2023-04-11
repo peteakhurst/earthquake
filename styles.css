@@ -1,24 +1,27 @@
 body {
 	margin: 0;
 	padding:0;
+	overflow: auto;
 }
 
 #map {
-	height: 100vh;
+	height: 80vh;
 	width: 100%;
+	overflow: hidden;
 }
 
 #panel {
 	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 	position: absolute;
 	top: 0;
-	right: 0; /* start off-screen */
+	right: 0;
 	height: 100vh;
 	width: 300px;
 	padding: 15px;
 	display: none; /* change to block to show the panel when needed */
 	background: #646464;
 	color: white;
+	opacity: 1;
   }
 
 @media (max-width: 768px) {
@@ -26,5 +29,7 @@ body {
 		position: static;
 		width: 100%;
 		display: block;
+		overflow:hidden;
+		height: 20vh;
 	}
 }
